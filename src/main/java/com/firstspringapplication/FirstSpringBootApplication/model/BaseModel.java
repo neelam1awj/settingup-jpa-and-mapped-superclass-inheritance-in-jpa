@@ -15,7 +15,7 @@ import java.util.Date;
 public abstract class BaseModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)//strategy table due to table per class inheritance as we have multiple tables due to long inheritance chain we used d generation type table
     protected Long id;
 
 

@@ -21,10 +21,8 @@ public class ReviewService implements CommandLineRunner {
         System.out.println("Review Service is running at startup");
         Review review = Review
                 .builder()
-                .title("Learn Spring Boot")
                 .rating(5.0)
-                .description("Complete the Spring Boot tutorial")
-                .date(2026)
+                .content("Ride review content")
 //                .createdAt(new Date())
 //                .updatedAt(new Date())
                 .build();//this code creates plain java object
@@ -33,7 +31,7 @@ public class ReviewService implements CommandLineRunner {
 
         List<Review> reviews =reviewRepository.findAll();
         for(Review td: reviews){
-            System.out.println(td.getTitle());
+            System.out.println(td.getContent());
 
 
         }

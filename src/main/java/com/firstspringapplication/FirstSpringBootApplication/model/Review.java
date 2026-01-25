@@ -10,60 +10,22 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="bookingreview")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)//whenever you want to get all reviews including child classes reviews in one go then use SINGLE_TABLE strategy
-public class Review extends BaseModel {// you don't have to use the join to fetch the data of parent and child class but table become overall bulky if there are many child classes
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)//everthing is same as @MappedSuperclass but here we can create a table for parent class as well adn on primary key generation strategy we have options like TABLE for table per class strategy
+public class Review extends BaseModel {
 
 
     @Column(nullable = false)
-    private String title;
-
-    @Column(nullable = false)
-    private String description;
-
-    @Column(nullable = false)
-    private double date;
+    private String content;
 
     Double rating;
-
-
 
     @Override
     public String toString() {
         return "ToDo{" +
                 "rating=" + rating +
-                "title=" + title +
                 "updatedAt=" + updatedAt +
                 "createdAt=" + createdAt +
-                "date=" + date +
-                "description=" + description +
                 '}';
     }
 }
-//5️⃣ Visual analogy (easy to remember)
-//
-//Think of CCTV cameras 📹
-//
-//@EnableJpaAuditing → Turns CCTV system ON
-//
-//@EntityListeners → Installs camera in a specific room
-//
-//@CreatedDate / @LastModifiedDate → Timestamps in footage
-//
-//No power ❌ → no recording
-//No camera ❌ → no footage
-
-
-//6️⃣ If you remove BOTH annotations
-//@EnableJpaAuditing ❌
-//@EntityListeners ❌
-//
-//
-//Then you must manually do this:
-//
-//        toDo.setCreatedAt(LocalDateTime.now());
-//        toDo.setUpdatedAt(LocalDateTime.now());
-//
-//
-//Every.
-//        Single.
-//        Time.
+//issue with table per class strategy is that if we have 4 child classes then common columns will be repeated 4 times in database leading to redundancy

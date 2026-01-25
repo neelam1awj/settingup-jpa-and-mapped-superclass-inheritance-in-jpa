@@ -9,7 +9,5 @@ import lombok.Setter;
 @Setter
 @Getter
 public class PassengerReview extends Review {
-
-    @Column(nullable = false)//we can't inforce this not null constraint  because of inheritance strategy single table
     private String passengerReviewContent;
 }
