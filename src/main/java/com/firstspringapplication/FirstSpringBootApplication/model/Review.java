@@ -9,7 +9,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="bookingreview")
+@Table(name="booking_review")
 @Inheritance(strategy = InheritanceType.JOINED)//reduce redundancy by creating separate table for common columns only property of base class will be stored in base table and child class properties will be stored in separate table with foreign key relation to base table primary key
 public class Review extends BaseModel {
     @Column(nullable = false)
