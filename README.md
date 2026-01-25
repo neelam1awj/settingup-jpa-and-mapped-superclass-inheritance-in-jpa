@@ -26,8 +26,8 @@ mysql> desc passenger_review;
 +--------------------------+--------------+------+-----+---------+-------+
 | Field                    | Type         | Null | Key | Default | Extra |
 +--------------------------+--------------+------+-----+---------+-------+
-| passenger_rating         | varchar(255) | YES  |     | NULL    |       |
-| passenger_review_content | varchar(255) | YES  |     | NULL    |       |
+| passenger_rating         | varchar(255) | NO  |     | NULL    |       |
+| passenger_review_content | varchar(255) | NO  |     | NULL    |       |
 | passenger_review_id      | bigint       | NO   | PRI | NULL    |       |
 +--------------------------+--------------+------+-----+---------+-------+
 3 rows in set (0.01 sec)
