@@ -1,4 +1,4 @@
-package com.firstspringapplication.FirstSpringBootApplication;
+package com.firstspringapplication.FirstSpringBootApplication.model;
 
 import jakarta.persistence.*;
 import lombok.*;

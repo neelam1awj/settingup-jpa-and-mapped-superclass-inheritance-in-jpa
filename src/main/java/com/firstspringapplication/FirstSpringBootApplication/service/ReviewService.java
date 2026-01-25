@@ -1,5 +1,6 @@
-package com.firstspringapplication.FirstSpringBootApplication;
+package com.firstspringapplication.FirstSpringBootApplication.service;
 
+import com.firstspringapplication.FirstSpringBootApplication.model.Review;
 import com.firstspringapplication.FirstSpringBootApplication.repository.ReviewRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
@@ -36,6 +37,6 @@ public class ReviewService implements CommandLineRunner {
 
 
         }
-        reviewRepository.deleteById(252L);//deleting the record with id 252
+        //reviewRepository.deleteById(252L);//deleting the record with id 252
     }
 }

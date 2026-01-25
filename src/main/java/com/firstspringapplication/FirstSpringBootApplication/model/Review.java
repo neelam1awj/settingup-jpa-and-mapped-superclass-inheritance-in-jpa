@@ -1,19 +1,17 @@
-package com.firstspringapplication.FirstSpringBootApplication;
+package com.firstspringapplication.FirstSpringBootApplication.model;
 
 import jakarta.persistence.*;
 import lombok.*;
 
-
-import java.time.LocalDateTime;
-
-@Entity
+@Entity//if we add name inside entity like @Entity(name="review_table") then the table will be created with name review_table but priority is given to @Table annotation if both are present
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="todos")
-public class Review extends BaseModel {
+@Table(name="bookingreview")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)//whenever you want to get all reviews including child classes reviews in one go then use SINGLE_TABLE strategy
+public class Review extends BaseModel {// you don't have to use the join to fetch the data of parent and child class but table become overall bulky if there are many child classes
 
 
     @Column(nullable = false)

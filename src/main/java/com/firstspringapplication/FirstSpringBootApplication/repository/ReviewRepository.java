@@ -1,6 +1,6 @@
 package com.firstspringapplication.FirstSpringBootApplication.repository;
 
-import com.firstspringapplication.FirstSpringBootApplication.Review;
+import com.firstspringapplication.FirstSpringBootApplication.model.Review;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
