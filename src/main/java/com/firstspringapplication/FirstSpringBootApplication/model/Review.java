@@ -10,10 +10,8 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="bookingreview")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)//everthing is same as @MappedSuperclass but here we can create a table for parent class as well adn on primary key generation strategy we have options like TABLE for table per class strategy
+@Inheritance(strategy = InheritanceType.JOINED)//reduce redundancy by creating separate table for common columns only property of base class will be stored in base table and child class properties will be stored in separate table with foreign key relation to base table primary key
 public class Review extends BaseModel {
-
-
     @Column(nullable = false)
     private String content;
 
@@ -28,4 +26,3 @@ public class Review extends BaseModel {
                 '}';
     }
 }
-//issue with table per class strategy is that if we have 4 child classes then common columns will be repeated 4 times in database leading to redundancy
