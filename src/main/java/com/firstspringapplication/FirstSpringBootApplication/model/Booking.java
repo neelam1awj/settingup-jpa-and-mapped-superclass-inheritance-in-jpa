@@ -13,7 +13,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class Booking extends BaseModel{
 
-    @OneToOne(cascade = {CascadeType.REMOVE})
+    @OneToOne(cascade = {CascadeType.PERSIST})
     private Review driverReview;//we have set up one-to-one relationship between Booking and Review
 
     private Date startTime;
@@ -23,4 +23,10 @@ public class Booking extends BaseModel{
     @Enumerated(value = EnumType.STRING)//Store enum as string in DB and @Enumeraated(value = EnumType.ORDINAL) to store as int
     //default is ORDINAL
     private BookingStatus bookingStatus;
+
+    @ManyToOne
+    private Driver driver;
+
+    @ManyToOne
+    private Passenger passenger;
 }
