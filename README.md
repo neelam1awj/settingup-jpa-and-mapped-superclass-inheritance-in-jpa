@@ -1,4 +1,16 @@
-desc passenger;
+mysql> desc student;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| id         | bigint       | NO   | PRI | NULL    | auto_increment |
+| created_at | datetime(6)  | NO   |     | NULL    |                |
+| updated_at | datetime(6)  | NO   |     | NULL    |                |
+| roll_no    | varchar(255) | YES  |     | NULL    |                |
+| name       | varchar(255) | YES  |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+5 rows in set (0.02 sec)
+
+mysql> desc cource;
 +------------+--------------+------+-----+---------+----------------+
 | Field      | Type         | Null | Key | Default | Extra          |
 +------------+--------------+------+-----+---------+----------------+
@@ -7,33 +19,17 @@ desc passenger;
 | updated_at | datetime(6)  | NO   |     | NULL    |                |
 | name       | varchar(255) | YES  |     | NULL    |                |
 +------------+--------------+------+-----+---------+----------------+
-4 rows in set (0.20 sec)
+4 rows in set (0.01 sec)
 
-mysql> desc booking;
-+------------------+-----------------------------------------------------------------------------------------------------------------------+------+-----+---------+----------------+
-| Field            | Type                                                                                                                  | Null | Key | Default | Extra          |
-+------------------+-----------------------------------------------------------------------------------------------------------------------+------+-----+---------+----------------+
-| id               | bigint                                                                                                                | NO   | PRI | NULL    | auto_increment |
-| created_at       | datetime(6)                                                                                                           | NO   |     | NULL    |                |
-| updated_at       | datetime(6)                                                                                                           | NO   |     | NULL    |                |
-| total_distance   | bigint                                                                                                                | YES  |     | NULL    |                |
-| booking_status   | enum('ASSIGNED','ASSIGNING_DRIVER','CAB_ARRIVED','CANCELLED','COMPLETED','CONFIRMED','IN_RIDE','PENDING','SCHEDULED') | YES  |     | NULL    |                |
-| end_time         | datetime(6)                                                                                                           | YES  |     | NULL    |                |
-| start_time       | datetime(6)                                                                                                           | YES  |     | NULL    |                |
-| driver_id        | bigint                                                                                                                | YES  | MUL | NULL    |                |
-| driver_review_id | bigint                                                                                                                | YES  | UNI | NULL    |                |
-| passenger_id     | bigint                                                                                                                | YES  | MUL | NULL    |                |
-+------------------+-----------------------------------------------------------------------------------------------------------------------+------+-----+---------+----------------+
-10 rows in set (0.01 sec)
+mysql> desc cource_stduent;
+ERROR 1146 (42S02): Table 'uber_db_local.cource_stduent' doesn't exist
+mysql> desc cource_student;
++------------+--------+------+-----+---------+-------+
+| Field      | Type   | Null | Key | Default | Extra |
++------------+--------+------+-----+---------+-------+
+| student_id | bigint | NO   | MUL | NULL    |       |
+| cource_id  | bigint | NO   | MUL | NULL    |       |
++------------+--------+------+-----+---------+-------+
+2 rows in set (0.01 sec)
 
-mysql> desc driver;
-+----------------+--------------+------+-----+---------+----------------+
-| Field          | Type         | Null | Key | Default | Extra          |
-+----------------+--------------+------+-----+---------+----------------+
-| id             | bigint       | NO   | PRI | NULL    | auto_increment |
-| created_at     | datetime(6)  | NO   |     | NULL    |                |
-| updated_at     | datetime(6)  | NO   |     | NULL    |                |
-| license_number | varchar(255) | NO   | UNI | NULL    |                |
-| name           | varchar(255) | YES  |     | NULL    |                |
-+----------------+--------------+------+-----+---------+----------------+
-5 rows in set (0.01 sec)
+mysql>
