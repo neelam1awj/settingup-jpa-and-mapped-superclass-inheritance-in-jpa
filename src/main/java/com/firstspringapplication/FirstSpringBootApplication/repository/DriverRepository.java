@@ -21,7 +21,7 @@ public interface DriverRepository extends JpaRepository<Driver,Long> {
 
       //difference between raw and non-raw is that in raw we have to write the query by our self and in non raw and hibernate query language and hibernate will convert it to sql query and execute it and in raw we have to write the sql query by our self and execute it
 
-
+//or @Query("From Driver as d WHERE d.id = :id AND d.licenseNumber = :ln") and then pass the parameters in the same order as they are in the query
       @Query("SELECT d FROM Driver d WHERE d.id = :id AND d.licenseNumber = :ln")
       Optional<Driver> HqlFindByIdAndLicense(Long id, String ln);
 }
