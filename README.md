@@ -1,35 +1,6 @@
-mysql> desc student;
-+------------+--------------+------+-----+---------+----------------+
-| Field      | Type         | Null | Key | Default | Extra          |
-+------------+--------------+------+-----+---------+----------------+
-| id         | bigint       | NO   | PRI | NULL    | auto_increment |
-| created_at | datetime(6)  | NO   |     | NULL    |                |
-| updated_at | datetime(6)  | NO   |     | NULL    |                |
-| roll_no    | varchar(255) | YES  |     | NULL    |                |
-| name       | varchar(255) | YES  |     | NULL    |                |
-+------------+--------------+------+-----+---------+----------------+
-5 rows in set (0.02 sec)
+//eager-loading: Hibernate: select d1_0.id,d1_0.created_at,d1_0.license_number,d1_0.name,d1_0.updated_at,b1_0.driver_id,b1_0.id,b1_0.total_distance,b1_0.booking_status,b1_0.created_at,dr1_0.id,case when dr1_1.driver_review_id is not null then 1 when dr1_2.passenger_review_id is not null then 2 when dr1_0.id is not null then 0 end,dr1_0.content,dr1_0.created_at,dr1_0.rating,dr1_0.updated_at,dr1_1.driver_review_content,dr1_2.passenger_review_content,b1_0.end_time,p1_0.id,p1_0.created_at,p1_0.name,p1_0.updated_at,b1_0.start_time,b1_0.updated_at from driver d1_0 left join booking b1_0 on d1_0.id=b1_0.driver_id left join bookingreview dr1_0 on dr1_0.id=b1_0.driver_review_id left join driver_review dr1_1 on dr1_0.id=dr1_1.driver_review_id left join passenger_review dr1_2 on dr1_0.id=dr1_2.passenger_review_id left join passenger p1_0 on p1_0.id=b1_0.passenger_id where d1_0.id=?
 
-mysql> desc cource;
-+------------+--------------+------+-----+---------+----------------+
-| Field      | Type         | Null | Key | Default | Extra          |
-+------------+--------------+------+-----+---------+----------------+
-| id         | bigint       | NO   | PRI | NULL    | auto_increment |
-| created_at | datetime(6)  | NO   |     | NULL    |                |
-| updated_at | datetime(6)  | NO   |     | NULL    |                |
-| name       | varchar(255) | YES  |     | NULL    |                |
-+------------+--------------+------+-----+---------+----------------+
-4 rows in set (0.01 sec)
-
-mysql> desc cource_stduent;
-ERROR 1146 (42S02): Table 'uber_db_local.cource_stduent' doesn't exist
-mysql> desc cource_student;
-+------------+--------+------+-----+---------+-------+
-| Field      | Type   | Null | Key | Default | Extra |
-+------------+--------+------+-----+---------+-------+
-| student_id | bigint | NO   | MUL | NULL    |       |
-| cource_id  | bigint | NO   | MUL | NULL    |       |
-+------------+--------+------+-----+---------+-------+
-2 rows in set (0.01 sec)
-
-mysql>
+one to many -->default fetch type is LAZY
+one to one -->default fetch type is EAGER
+many to one -->default fetch type is EAGER
+many to many -->default fetch type is LAZY

@@ -13,7 +13,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class Booking extends BaseModel{
 
-    @OneToOne(cascade = {CascadeType.PERSIST})
+    @OneToOne(cascade = {CascadeType.PERSIST},fetch = FetchType.LAZY)
     private Review driverReview;//we have set up one-to-one relationship between Booking and Review
 
     private Date startTime;
@@ -29,4 +29,6 @@ public class Booking extends BaseModel{
 
     @ManyToOne
     private Passenger passenger;
+
+    //if you want to use mongodb thatn use mongorepository and @Document annotation instead of @Entity and use @Id annotation for id field instead of @GeneratedValue
 }

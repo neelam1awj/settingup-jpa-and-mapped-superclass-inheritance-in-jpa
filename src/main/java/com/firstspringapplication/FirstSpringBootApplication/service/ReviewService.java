@@ -76,15 +76,23 @@ public class ReviewService implements CommandLineRunner {
         if(drivers.isPresent())
         {
             System.out.println("Driver found: "+drivers.get().getName());
-            List<Booking> bookings=bookingRepository.findAllByDriverId(1L);
-            for(Booking booking: bookings)
+            List<Booking> b1=drivers.get().getBookings();
+//           // List<Booking> bookings=bookingRepository.findAllByDriverId(1L);
+            for(Booking booking: b1)
             {
-                System.out.println(booking.getBookingStatus());
+                System.out.println(booking.getId());
+               // System.out.println(booking.getBookingStatus());
             }
         }
-        else
-        {
-            System.out.println("Driver not found");
-        }
+//        else
+//        {
+//            System.out.println("Driver not found");
+//        }
+
+        //Optional<Driver> driver=driverRepository.findById(1L);
+
+        Optional<Booking> b=bookingRepository.findById(6L);//one to one relationship between booking and review so we can get review from booking   with default fetch type lazy we need to use getDriverReview() method to get review details but if we want to get review details along with booking details then we need to change fetch type to eager in booking entity
+
+
     }
 }
